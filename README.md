@@ -4,17 +4,18 @@ Docker image for https://github.com/fatedier/frp. Fully configurable through env
 
 ## frps
 ```bash
-$ docker run -d lomik/frp -p 7000:7000 -p 8000:8000 \
+$ docker run -d -p 7000:7000 -p 8000:8000 \
   -e "FRPS=1" \
   -e "FRPS_BIND_PORT=7000" \
-  -e "FRPS_VHOST_HTTP_PORT=8080"
+  -e "FRPS_VHOST_HTTP_PORT=8080" \
+  lomik/frp
 # ...
 # all parameters can be exposed through environment variables
 ```
 
 ## frpc
 ```bash
-$ docker run -d lomik/frp \
+$ docker run -d \
   -e "FRPC=1" \
   -e "FRPC_SERVER_ADDR=x.x.x.x" \
   -e "FRPC_SERVER_PORT=7000" \
@@ -26,7 +27,8 @@ $ docker run -d lomik/frp \
   -e "FRPC_2_NAME=web" \
   -e "FRPC_2_TYPE=http" \
   -e "FRPC_2_LOCAL_PORT=80" \
-  -e "FRPC_2_CUSTOM_DOMAINS=www.yourdomain.com"
+  -e "FRPC_2_CUSTOM_DOMAINS=www.yourdomain.com" \
+  lomik/frp
 # ...
 # all parameters can be exposed through environment variables
 ```
